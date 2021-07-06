@@ -10,6 +10,11 @@ var Puzzle = mongoose.model('Puzzle', {
     img: String
 })
 
+var Review = mongoose.model('Review', {
+    name: String,
+    opinion: String
+})
+
 const app  = express()
 app.use(cors())
 app.use(express.static(__dirname))
@@ -30,6 +35,13 @@ router.route('/puzzles').get((req, res) => {
         console.log(err);
         else
         res.json(puzzles)
+    })
+})
+
+router.route('/reviews').get((req, res) => {
+    Review.find((err, reviews) => {
+        if (err) console.log(err)
+        res.json(reviews)
     })
 })
 
