@@ -2,12 +2,17 @@ var express = require('express')
 
 var cors = require('cors')
 var mongoose = require('mongoose')
-// var http = require('http').Server(app)
 var router = express.Router()
+
 
 var Puzzle = mongoose.model('Puzzle', {
     question: String,
-    img: String
+    img: String,
+    options: Array,
+    solution: Object,
+    answer: Object,
+    isCorrect: Object,
+    explanation: String
 })
 
 var Review = mongoose.model('Review', {
