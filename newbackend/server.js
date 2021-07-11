@@ -1,5 +1,5 @@
 var express = require('express')
-
+var path = require('path')
 var cors = require('cors')
 var mongoose = require('mongoose')
 var router = express.Router()
@@ -62,7 +62,7 @@ app.get('/*', (req, res) =>
 );
 
 // Start the app by listening on the default Heroku port
-// app.listen(process.env.PORT || 8080);
+app.listen(8080);
 
 app.listen(4000, () => console.log('Running on port 4000'))
 
