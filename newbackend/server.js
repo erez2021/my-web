@@ -54,7 +54,15 @@ router.route('/reviews').get((req, res) => {
 app.use('/', router)
 
 
-// mongoose.Promise = Promise
+// Serve only the static files form the dist directory
+app.use(express.static('./dist/my-web'));
+
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/my-web/'}),
+);
+
+// Start the app by listening on the default Heroku port
+// app.listen(process.env.PORT || 8080);
 
 app.listen(4000, () => console.log('Running on port 4000'))
 
