@@ -23,8 +23,8 @@ var Review = mongoose.model('Review', {
 
 const app  = express()
 app.use(cors())
-// app.use(express.static(__dirname))
-app.use(serveStatic(__dirname + '../dist'))
+app.use(express.static(__dirname))
+// app.use(serveStatic(__dirname + '../dist'))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
